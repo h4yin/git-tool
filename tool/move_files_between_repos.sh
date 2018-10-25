@@ -3,7 +3,7 @@
 # author: Henry Yin(h4yin)
 #
 # Example:
-# ./move_files_between_repos.sh -o path/to/origin/repo -t path/to/origin/repo -f  \
+# ./move_files_between_repos.sh -o origin_repo_name -t target_repo_name -f  \
 # path/to/file [-p module_name_in_origin_repo] [-s module_name_in_target_repo] [-d]
 
 # parse args
@@ -36,15 +36,20 @@ while getopts "o:t:f:p:s:d" OPT; do
         \?)
             echo
             echo "Usage:"
-            echo "    -o    Origin repo"
-            echo "    -t    Target repo"
+            echo "    -o    Origin repo name"
+            echo "    -t    Target repo name"
             echo "    -f    File which each line represents a file to be moving"
             echo "    [-p]  Module name in origin repo"
             echo "    [-s]  Module name in target repo"
             echo "    [-d]  Delete files after moved"
             echo
-            echo "Example: ./move_files_between_repos.sh -o path/to/origin/repo -t path/to/origin/repo -f " \
+            echo "Example: ./move_files_between_repos.sh -o origin_repo_name -t target_repo_name -f " \
                  "path/to/file [-p module_name_in_origin_repo] [-s module_name_in_target_repo] [-d]"
+            echo
+            echo "Notice:"
+            echo "1. Origin repo, target repo and script should be in the same directory."
+            echo "2. Path in files must be relative path in origin repo or module(if -p option used)."
+            echo "3. Not support directory, you can list all files in the directory intending to move instead."
             echo
             exit 1
     esac
