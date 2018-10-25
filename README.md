@@ -11,7 +11,7 @@ Also supports specifying module directory in repository.
 Also supports auto deleting origin repository files with -d option.  
 
 Usage:
-```bash
+```text
     -o    Origin repo name
     -t    Target repo name
     -f    File which each line represents a file to be moving
